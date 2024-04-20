@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div></div>
+    <button id="button">버튼</button>
+    <script src="../this.js"></script>
+
+    <script>
+document.getElementById('button').addEventListener(
+    'click', function() {
+        console.log(this);
+        var array = [1,2,3,4,10];
+        array.forEach(function(a) {
+            console.log(this);
+        });
+    })
+    
+
+    var ob = {
+        names : ['김','이','박'],
+        func : function() {
+            console.log(this)
+            ob.names.forEach(function() {
+                console.log(this);
+            })
+            console.log('-----------')
+            ob.names.forEach(()=>{
+                console.log(this);
+            })
+        }
+    }
+
+    ob.func();
+
+    </script>
+
+</body>
+</html>

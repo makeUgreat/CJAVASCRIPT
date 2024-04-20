@@ -1,0 +1,91 @@
+p {
+    text-align: center;
+}
+
+.alert-box {
+    background-color: skyblue;
+    padding: 20px;
+    color: white;
+    border-radius: 5px;
+    display: none;
+}
+
+.profile {
+    width: 100px; 
+    /* display: block -> 가로행을 전부차지할래요 */
+    display: block;  
+    margin-left: auto; 
+    margin-right: auto;
+}
+
+.title {
+    font-family:'gulim'; 
+    font-size: 6vw; 
+    color: rgb(105, 65, 193); 
+    text-align: center;
+}
+
+.box {
+    margin-left: auto;
+    margin-right: auto;
+    width: 200px;
+    background: cadetblue;
+    padding: 40px;
+    border-radius: 5px;
+    font-size: 30px;
+    box-shadow: black 4px;
+}
+
+.list-group {
+    display: none;
+}
+
+
+.black-bg {
+    width : 100%;
+    height : 100%;
+    position : fixed;
+    background : rgba(0,0,0,0.5);
+    z-index : 6;
+    padding: 30px;
+    visibility: hidden;
+    opacity: 0;
+    transition: all 0.2s;
+}
+.white-bg {
+    background: white;
+    border-radius: 5px;
+    padding: 30px;
+} 
+
+.slide-container {
+    width: 300vw;
+    transition: all 1s;
+}
+
+.slide-box {
+    width: 100vw;
+    float: left;
+}
+
+.slide-box img {
+    width: 100%;
+}
+
+.navbar {
+    position: fixed;
+    width: 100%;
+    z-index: 5;
+}
+
+.navbar-brand {
+    font-size: 20px;;
+}
+
+
+/* 동작 클래스 */
+
+.show {
+    visibility: visible;
+    opacity: 1;
+}

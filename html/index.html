@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="../css/main.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+</head>
+<body>
+    <!-- 로그인 모달 -->
+    <div class="black-bg">
+        <div class="white-bg">
+          <h4>로그인하세요</h4>
+          <form action="../html/success.html">
+            <div class="my-3">
+              <input type="text" class="form-control" id="email-form">
+             </div>
+             <div class="my-3">
+               <input type="password" class="form-control" id="pwd-form">
+             </div>
+             <button type="submit" class="btn btn-primary" id="send">전송</button>
+             <button type="button" class="btn btn-danger" id="close">닫기</button>
+          </form> 
+        </div>
+    </div> 
+    <script>
+        $('form').on('submit',function(e) {
+            if ($('#email-form').val() == '' ){
+                alert('아이디를 입력해주세요')
+                e.preventDefault();
+            } else if ($('#pwd-form').val() == '') {
+                alert('비밀번호를 입력해주세요')
+                e.preventDefault();
+            }
+
+            if ($('#pwd-form').val().length < 6) {
+                alert('비밀번호는 6자 이상 입력해주세요')
+                e.preventDefault();
+            }
+
+        $('.black-bg').on('click',function() {
+            $(this).removeClass('show')
+        })
+        })
+        
+    </script>
+
+    <nav class="navbar navbar-light bg-light">
+        <div class="container-fluid">
+            <span class="navbar-brand">김진명의 블로그</span>
+            <button class="ms-auto mx-3 badge bg-dark" id="mode_btn">Dark 🔄</button>
+            <button class="navbar-toggler" type="button">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
+    </nav> 
+
+    <script>
+        $(winodw).on('scroll',function() {
+            $(window).scrollTop()
+        })
+    </script>
+
+
+    <ul class="list-group">
+        <li class="list-group-item">An item</li>
+        <li class="list-group-item">A second item</li>
+        <li class="list-group-item">A third item</li>
+        <li class="list-group-item">A fourth item</li>
+        <li class="list-group-item">And a fifth one</li>
+    </ul>
+
+    <script>
+        document.querySelector('.navbar-toggler')
+        .addEventListener('click', function() {
+            document.querySelector('.list-group').classList.add('show');
+        })
+        $('.badge').on('click', function() {
+            cnt ++;
+            if (cnt%2 == 1) {
+                $('#mode_btn').html('Light 🔄')
+            } else {
+                $('#mode_btn').html('Dark 🔄')
+            }
+        })  
+        let cnt = 0;
+    </script>
+
+
+    <img src="../images/lion.png" class="profile">
+    <h3 class ="title">김진명</h3>
+    <p>
+        <span>Fullstack</span> <strong>Developer</strong> 
+    </p>
+    
+    <div class="alert-box" id='alert'>
+        <p class="title">알림창</p>
+        <button id="close2"> 숨기기 </button>
+    </div>
+    <button onclick="actbox('block','아이디')">표시</button> <br>
+
+    <button type="button" class="btn btn-primary" id="login-btn">로그인</button>
+
+    <div class="alert alert-danger">
+        5초 이내 구매시 사은품 증정!
+    </div>
+    <script>
+        $(function() {
+            let cnt =5 ;
+            let timer = setInterval(function() {
+                cnt--;
+                if (cnt >= 0) {
+                    $('.alert-danger').text(cnt+'초 이내 구매시 사은품 증정!')
+                } else {
+                    clearInterval(timer);
+                    $('.alert-danger').text('타임 아웃 ㅠㅠ')
+                }
+            } , 1000);
+        })
+    </script>
+    <div style="overflow: hidden;">
+    <div class="slide-container">
+        <div class="slide-box">
+            <img src="../images/car1.png">
+        </div>
+        <div class="slide-box">
+            <img src="../images/car2.png">
+        </div>
+        <div class="slide-box">
+            <img src="../images/car3.png">
+        </div>
+    </div>
+    </div>
+
+    <button class="slide-1">1</button>
+    <button class="slide-2">2</button>
+    <button class="slide-3">3</button>
+    <button class="next">다음</button>
+    <script>
+        let nowPosition = 0;
+        $('.slide-1').on('click', function() {
+            $('.slide-container').css('transform','translateX(0vw)')
+            nowPosition = 1;
+        })
+        $('.slide-2').on('click', function() {
+            $('.slide-container').css('transform','translateX(-100vw)')
+            nowPosition = 2;
+        })
+        $('.slide-3').on('click', function() {
+            $('.slide-container').css('transform','translateX(-200vw)')
+            nowPosition = 3;
+        })
+
+        $('.next').on('click', function() {
+            if (nowPosition == 1) {
+                $('.slide-container').css('transform','translateX(-100vw)')
+                nowPosition = 2;
+            } else if (nowPosition == 2) {
+                $('.slide-container').css('transform','translateX(-200vw)')
+                nowPosition = 3;
+            } else if (nowPosition == 3) {
+                $('.slide-container').css('transform','translateX(0vw)')
+                nowPosition = 1;        
+            }
+        })
+    </script>
+
+    <div calss="lorem" style="width: 25vw; height: 100px; overflow-y: scroll;" >Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo iure eaque architecto tempore impedit similique ad asperiores totam repellendus. Officia velit ipsa, ab hic eum inventore repellat unde incidunt adipisci.</div>
+    <script>
+        $('.lorem').on('scroll', function(){
+            const height = $('.lorem').scrollHeight();
+            let now = $('.lorem').scrollTop();
+
+        })
+    </script>
+
+    <div style="height: 1000px"></div>
+
+
+    <script>
+        $('#login-btn').on('click', function(){
+            $('.black-bg').addClass('show');
+        })
+        $('#close').on('click',function() {
+            $('.black-bg').removeClass('show');
+        })
+
+        document.getElementById('close2').addEventListener('mouseover', function() {
+            document.getElementById('alert').style.display = 'none'
+        });
+
+        function actbox(param,content) {
+            document.getElementsByClassName('title')[1].innerHTML = content +' 입력하세요'
+            document.getElementById('alert').style.display= param;
+        }
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+</body>
+</html>
